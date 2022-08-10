@@ -165,7 +165,7 @@ The underlying technical code, not including the `_pages` directory, is
 By contributing to this repository, you agree to licence your content
   under these terms.
 
-[CC BY-SA] <https://creativecommons.org/licenses/by-sa/4.0/>
-[Fandom-Coders] <https://github.com/Fandom-Coders>
-[GitHub-Pages-Locally] <https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll>
-[MIT License] <https://choosealicense.com/licenses/mit/>
+[CC BY-SA]: <https://creativecommons.org/licenses/by-sa/4.0/>
+[Fandom-Coders]: <https://github.com/Fandom-Coders>
+[GitHub-Pages-Locally]: <https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll>
+[MIT License]: <https://choosealicense.com/licenses/mit/>
