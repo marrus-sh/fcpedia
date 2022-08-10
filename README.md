@@ -2,7 +2,7 @@
 
 This is the official repository for _The Fandom Coders Encyclopædia_,
   an encyclopedia of technological concepts built by the
-  [Fandom Coders][] community.
+  [Fandom-Coders][] community.
 The encyclopedia is built using Jekyll and hosted via GitHub Pages.
 
 ## How To Contribute
