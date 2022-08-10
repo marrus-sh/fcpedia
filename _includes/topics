@@ -1,0 +1,23 @@
+{% assign topics = "" | split: "" -%}
+{% assign notfound = "" | split: "" -%}
+{% for slug in page.topics -%}
+	{% assign topic = site.topics | where: "slug", slug | first -%}
+	{% if topic -%}
+		{% assign topics = topics | push: topic -%}
+	{% else -%}
+		{% assign notfound = notfound | push: slug -%}
+	{% endif -%}
+{% endfor -%}
+{% assign topics = topics | sort_natural: "title" -%}
+{% assign notfound = notfound | sort_natural -%}
+
+{% if topics.size > 0 -%}
+<footer>
+	<nav id="topics" aria-label="Topics">{% for topic in topics %}
+		{% include link to=topic %}{% endfor %}{% for topic in notfound %}
+		{% include link to=topic from=site.topics %}{% endfor %}
+	</nav>
+</footer>
+{% comment %}Intentional newline {% endcomment %}
+{% comment %}Intentional newline {% endcomment %}
+{% endif -%}

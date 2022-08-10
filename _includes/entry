@@ -1,0 +1,7 @@
+{% assign entry = site.entries | where: "slug", page.slug | first -%}
+
+{% if entry -%}
+	<div role="note"><p>There is an encyclopedia entry associated with this word: {% include link to=entry full=false -%}
+	.</p></div>{% comment %}Intentional newline {% endcomment %}
+{% comment %}Intentional newline {% endcomment %}
+{% endif -%}

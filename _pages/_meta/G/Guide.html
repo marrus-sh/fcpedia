@@ -1,0 +1,34 @@
+---
+shorttitle: Guide
+title: Reader’s Guide
+---
+
+<p>This Readerʼs Guide is presented to give readers a highly­‐structured overview of the content contained in this encyclopedia, by breaking it up into broad areas of knowledge and then further into fields and branches of study. It is not a comprehensive list of the articles available through this encyclopædia (for that, see the {% include link to="Index" from=site.meta %}), but it should be sufficient to get readers started in whichever subject­‑area they see fit to explore.</p>
+
+<section id="unix">
+	{% include heading level=3 section="unix" text="Working with Unix" %}
+
+	{% include cf items="Unix" from=site.topics %}
+
+	<section id="unix.basics">
+		{% include heading level=4 section="unix.basics" text="The Basics" %}
+
+		{% include guidelist items="Unix operating_system filesystem command_line" %}
+	</section>
+</section>
+
+<section id="projects">
+	{% include heading level=3 section="projects" text="Project Management" %}
+
+	<section id="projects.vc">
+		{% include heading level=4 section="projects.vc" text="Version Control" %}
+
+		<section id="projects.vc.git">
+			{% include heading level=5 section="projects.vc.git" text="Git" %}
+
+			{% include cf items="Git" from=site.topics %}
+
+			{% include guidelist items="Git" %}
+		</section>
+	</section>
+</section>

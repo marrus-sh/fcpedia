@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ page.lang | default: site.lang | default: 'en' }}" xml:lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+<head>
+{% include metatags %}
+</head>
+
+<body>
+{% include header %}
+
+<main>
+<article>
+
+{% include subheader %}
+
+{% include associated %}{% comment %} (Ends in double newline) {% endcomment %}{{ content }}{% comment %} (Ends in newline) {% endcomment %}
+{% include contained from=site.topics section="subtopics" heading="Subtopics" %}
+
+{% include contained from=site.entries section="entries" heading="Related entries" %}
+
+{% include topics %}{% comment %} (Ends in double newline) {% endcomment %}</article>
+</main>
+
+{% include footer %}
+</body>
+
+</html>

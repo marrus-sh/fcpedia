@@ -1,0 +1,64 @@
+author: Fandom Coders
+collections:
+  entries:
+    output: true
+    permalink: /Entry/:title/
+    sigil: ⁌
+  help:
+    output: true
+    permalink: /Help/:title/
+    sigil: ⌑
+    title: Help
+  meta:
+    output: true
+    permalink: /:title/
+    sigil: ※
+    title: Meta
+  topics:
+    output: true
+    permalink: /Topic/:title/
+    sigil: ⌗
+    title: Topic
+  words:
+    output: true
+    permalink: /Word/:title/
+    sigil: ✒
+    title: Dictionary
+collections_dir: _pages
+defaults:
+- scope:
+    path: ""
+  values:
+    layout: entry
+- scope:
+    path: ""
+    type: topics
+  values:
+    layout: topic
+- scope:
+    path: ""
+    type: words
+  values:
+    layout: word
+description: An encyclopedia of technological concepts by the Fandom Coders community
+plugins:
+- jekyll-github-metadata
+- jekyll-redirect-from
+kramdown:
+  toc_levels: 2..4
+  gfm_quirks: no_auto_typographic
+  smart_quotes: [apos, apos, quot, quot]
+lang: en
+markdown: kramdown
+permalink: /blog/:categories/:title-0:year:month:day.html
+sass:
+  style: expanded
+sitelinks:
+- Index
+- Guide
+- Dictionary
+splashes:
+  - Default splashtext!
+timezone: US/Pacific
+title: The Fandom Coders Encyclopædia
+title_short: fcpedia

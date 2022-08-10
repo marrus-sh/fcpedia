@@ -1,0 +1,7 @@
+{% assign entry = site.words | where: "slug", page.slug | first -%}
+
+{% if entry -%}
+	<aside><p>There is a dictionary entry for {% include link to=entry full=false -%}
+	.</p></aside>{% comment %}Intentional newline{% endcomment %}
+{% comment %}Intentional newline{% endcomment %}
+{% endif -%}

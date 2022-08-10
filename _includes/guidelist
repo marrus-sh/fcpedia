@@ -1,0 +1,13 @@
+{% assign items = include.items | split: " " -%}
+{% if items.size > 0 -%}
+<ul class="GUIDE">{% for item in items -%}
+	{% unless item == "(" or item == ")" -%}
+		<li>{% include link to=item from=include.from full=false -%}
+		{% if items[forloop.index] == "(" -%}
+			<ul class="GUIDE">{% else -%}
+		</li>{% endif -%}
+		{% if items[forloop.index] == ")" -%}
+			</ul></li>{% endif -%}
+	{% endunless -%}
+	{% endfor -%}
+</ul>{% endif -%}

@@ -1,0 +1,32 @@
+---
+shorttitle: Introduction
+title: Introduction to the Encyclopædia
+---
+
+<section id="features">
+	{% include heading level=3 section="features" text="Principal features" %}
+
+	<section id="text">
+		{% include heading level=4 section="text" text="Main text" %}
+
+		<p>
+			This text is a continual work­‑in­‑progress.
+			At this moment, it contains <b>{% if site.entries.size > 10000 %}{{ site.entries.size | divided_by: 1000 }} {{ site.entries.size | modulo: 1000 }}{% else %}{{ site.entries | size }}{% endif %}</b> entries categorized into <b>{% if site.topics.size > 10000 %}{{ site.topics.size | divided_by: 1000 }} {{ site.topics.size | modulo: 1000 }}{% else %}{{ site.topics | size }}{% endif %}</b> topics.
+			As the {% include link to="Fandom_Coders" %} community grows and develops, these numbers are likely to increase.
+		</p>
+	</section>
+
+	<section id="navigation">
+		{% include heading level=4 section="navigation" text="Navigational aids" %}
+
+		<p>
+			The {% include link to="Index" from=site.meta %} page provide a simple and easy means of locating the article you are looking for—if you already know its title.
+			However, for more general browsing, the {% include link to="Topics" from=site.meta text="Topic" %} pages are likely to be of more use, as they collect multiple pages on a particular topic together.
+			Finally, the {% include link to="Guide" from=site.meta %} provides a comprehensive overview for newcomers to the various areas of knowledge this encyclopedia offers.
+		</p>
+		<p>
+			In addition to these broad features, each entry also comes equipped with a <i>Related entries</i> section and is extensively hyperlinked.
+			Consequently, once a reader finds themselves on an article associated with their topic, it is not hard to gather more information about the various concepts or ideas discussed.
+		</p>
+	</section>
+</section>

@@ -1,0 +1,126 @@
+{% assign lang = include.lang -%}
+{% unless lang -%}
+	{% case page.collection -%}
+		{% when "OSv" -%}
+			{% assign lang = "osv" -%}
+		{% when "OSM" -%}
+			{% assign lang = "osm" -%}
+		{% else -%}
+			{% assign lang = "svi" -%}
+	{% endcase -%}
+{% endunless -%}
+{% assign lang = lang | downcase -%}
+{% assign words = include.words | split: " " -%}
+{% assign entry = nil %}
+{% assign forcelink = include.link -%}
+{% if forcelink == nil -%}
+	{% if page.collection == "OSv" or page.collection == "OSM" or page.collection == "words" -%}
+		{% assign forcelink = true -%}
+	{% else -%}
+		{% assign forcelink = false -%}
+	{% endif -%}
+{% endif -%}
+
+{% if include.parenthetical -%}
+	{{ "( " }}{% case lang -%}
+		{% when "osm" -%}
+			{% include link to="Middle_Sevensi" from=site.entries full=false -%}
+		{% when "osv" -%}
+			{% include link to="Classical_Sevensi" from=site.entries full=false -%}
+		{% else -%}
+			{% include link to="Sevensi_language" from=site.entries text="Sevensi" full=false -%}
+	{% endcase -%}
+	{{ " : " }}{% if lang == "osv" -%}
+		<i lang="art-Latn-x-{{ lang }}" xml:lang="art-Latn-x-{{ lang }}">{% for word in words -%}
+			{% assign entry = site.OSv | where: "slug", word | first -%}
+			{% assign text = entry.title -%}
+			{% unless text -%}
+				{% assign text = word | replace: "9", "Ƣ" | replace: "Z", "Ʒ" | replace: "S", "Ʃ" | replace: "C", "Ç" | replace: "7", "Ɂ" | replace: "=", "ƛ" | replace: "-", "‑" | replace: "_", " " | replace: "~", "−" -%}
+			{% endunless -%}
+			{% if entry or forcelink -%}
+				{% include link to=entry text=text -%}
+			{% else -%}{{ text }}{% endif -%}
+			{% unless forloop.last %}{{ " " }}{% endunless -%}
+		{% endfor -%}
+		</i>
+	{% else -%}
+		{% assign pairs = "" | split: "" %}
+		{% for word in words -%}
+			{% assign entry = nil -%}
+			{% assign pair = "" | split: "" %}
+			{% if lang == "osm" -%}
+				{% assign entry = site.OSM | where: "slug", word | first -%}
+			{% else -%}
+				{% assign entry = site.words | where: "slug", word | first -%}
+			{% endif -%}
+			{% assign text = entry.title -%}
+			{% unless text -%}
+				{% assign text = word | replace: "'", "ʼ" | replace: "@", "å" | replace: "*", "ø" | replace: "-", "‑" | replace: "_", " " -%}
+			{% endunless -%}
+			{% assign anglic = text %}
+			{% if entry or forcelink -%}
+				{% capture anglic %}{% include link to=entry text=text %}{% endcapture -%}
+			{% endif -%}
+			{% assign pair = pair | push: anglic -%}
+			{% assign roman = entry.roman -%}
+			{% unless roman -%}
+				{% assign roman = "⁇" -%}
+			{% endunless -%}
+			{% assign pair = pair | push: roman -%}
+			{% assign pairs = pairs | push: pair -%}
+		{% endfor -%}
+		<i lang="art-Latn-x-{{ lang }}" xml:lang="art-Latn-x-{{ lang }}">{% for pair in pairs -%}
+			{{ pair.last }}{% unless forloop.last %}{{ " " }}{% endunless -%}
+		{% endfor -%}
+		</i> ; <i lang="art-Latn-x-{{ lang }}-anglic" xml:lang="art-Latn-x-{{ lang }}-anglic">{% for pair in pairs -%}
+			{{ pair.first }}{% unless forloop.last %}{{ " " }}{% endunless -%}
+		{% endfor -%}
+		</i>
+	{% endif -%}
+	{{ " )" }}
+{% elsif lang == "osv" -%}
+	<i lang="art-Latn-x-{{ lang }}" xml:lang="art-Latn-x-{{ lang }}">{% for word in words -%}
+		{% assign entry = site.OSv | where: "slug", word | first -%}
+		{% assign text = entry.title -%}
+		{% unless text -%}
+			{% assign text = word | replace: "9", "Ƣ" | replace: "Z", "Ʒ" | replace: "S", "Ʃ" | replace: "C", "Ç" | replace: "7", "Ɂ" | replace: "=", "ƛ" | replace: "-", "‑" | replace: "_", " " | replace: "~", "−" -%}
+		{% endunless -%}
+		{% if entry or forcelink -%}
+			{% include link to=entry text=text -%}
+		{% else -%}{{ text }}{% endif -%}
+		{% unless forloop.last %}{{ " " }}{% endunless -%}
+	{% endfor -%}
+	</i>
+{% else -%}
+	{% assign pairs = "" | split: "" %}
+	{% for word in words -%}
+		{% assign entry = nil -%}
+		{% assign pair = "" | split: "" %}
+		{% if lang == "osm" -%}
+			{% assign entry = site.OSM | where: "slug", word | first -%}
+		{% else -%}
+			{% assign entry = site.words | where: "slug", word | first -%}
+		{% endif -%}
+		{% assign text = entry.title -%}
+		{% unless text -%}
+			{% assign text = word | replace: "'", "ʼ" | replace: "@", "å" | replace: "*", "ø" | replace: "-", "‑" | replace: "_", " " -%}
+		{% endunless -%}
+		{% assign anglic = text %}
+		{% if entry or forcelink -%}
+			{% capture anglic %}{% include link to=entry text=text %}{% endcapture -%}
+		{% endif -%}
+		{% assign pair = pair | push: anglic -%}
+		{% assign roman = entry.roman -%}
+		{% unless roman -%}
+			{% assign roman = "⁇" -%}
+		{% endunless -%}
+		{% assign pair = pair | push: roman -%}
+		{% assign pairs = pairs | push: pair -%}
+	{% endfor -%}
+	<i lang="art-Latn-x-{{ lang }}-anglic" xml:lang="art-Latn-x-{{ lang }}-anglic">{% for pair in pairs -%}
+		{{ pair.first }}{% unless forloop.last %}{{ " " }}{% endunless -%}
+	{% endfor -%}
+	</i> [ <i lang="art-Latn-x-{{ lang }}" xml:lang="art-Latn-x-{{ lang }}">{% for pair in pairs -%}
+		{{ pair.last }}{% unless forloop.last %}{{ " " }}{% endunless -%}
+	{% endfor -%}
+	</i> ]{% endif -%}

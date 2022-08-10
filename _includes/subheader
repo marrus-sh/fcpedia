@@ -1,0 +1,13 @@
+{% assign word = nil -%}
+{% assign anglic = nil -%}
+{% assign roman = nil -%}
+{% assign lang = nil -%}
+
+<header>
+	<h2 data-collection="{{ page.collection }}">{% if page.collection == "entries" or page.collection == "words" %}
+		{% include title of=page %}{% else %}
+		{% include title of=page full=true %}{% endif %}
+	</h2>{% if page.subtitle %}
+	<p>{% assign initial = page.subtitle | slice: 0 -%}
+	{{ initial | upcase }}{{ page.subtitle | remove_first: initial }}</p>{% endif %}
+</header>{% comment %} (Strip trailing whitespace) {% endcomment -%}

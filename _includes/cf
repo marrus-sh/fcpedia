@@ -1,0 +1,7 @@
+{% assign items = include.items | split: " " -%}
+{% if items.size > 0 -%}
+<div role="note"><p><b>See also:</b> {% for item in items -%}
+	{% if forloop.last -%}
+		{% unless forloop.first -%}and {% endunless %}{% endif -%}
+	{% include link to=item from=include.from %}{% if forloop.last %}.{% elsif items.size < 3 %} {% else %}, {% endif %}{% endfor -%}
+</p></div>{% endif -%}

@@ -1,0 +1,46 @@
+{% assign items = "" | split: "" -%}
+{% assign letters = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z &" | split: " " -%}
+{% assign prefix_size = include.of[0].collection.size | plus: 2 -%}
+{% assign grouped = include.of | group_by_exp: "item", "item.path | slice: prefix_size" -%}
+{% for letter in letters -%}
+	{% assign grouping = grouped | where: "name", letter | first -%}
+	{% assign container = "" | split: "" -%}
+	{% if grouping.items.size > 0 -%}
+		{% assign container = container | concat: grouping.items -%}
+	{% endif -%}
+	{% assign grouping = container -%}
+	{% assign container = "" | split: "" -%}
+	{% for item in grouping -%}
+		{% assign slug = item.slug | downcase | replace: "-", " " | strip | replace: " ", "-" | split: " " | push: item -%}
+		{% assign container = container | push: slug -%}
+	{% endfor -%}
+	{% assign container = container | sort -%}
+	{% assign items = items | push: container -%}
+{% endfor -%}
+
+<nav id="index" aria-label="Index navigation">
+	{% for container in items -%}
+	{% assign index = forloop.index0 -%}
+	{% if letters[index] == "/" -%}
+	{% comment %}Intentional newline{% endcomment %}
+	<br />
+	{% comment %}Intentional newline{% endcomment %}{% else -%}
+	<a{% if container.size > 0 %} class="INDEX" href="#{{ letters[index] | replace_first: "&", "other" }}"{% endif %}>
+		{{ letters[index] | xml_escape }}
+	</a>{% unless forloop.last or letters[forloop.index] == "/" %} | {% endunless %}{% endif -%}
+	{% endfor %}
+</nav>
+
+{% for container in items -%}
+	{% if container.size > 0 -%}
+		{% assign index = forloop.index0 -%}
+		{% assign letter = letters[index] -%}
+		{% assign current = letter | replace_first: "&", "other" -%}
+		<section id="{{ current }}">
+	{% include heading level=3 id=current text=letter %}
+
+	<ul>{% for item in container %}
+		{% assign entry = item[1] -%}
+		<li>{% include link to=entry from=include.of full=false %}</li>{% endfor %}
+	</ul>
+</section>{% endif %}{% endfor -%}

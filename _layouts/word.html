@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ page.lang | default: site.lang | default: 'en' }}" xml:lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+<head>
+{% include metatags %}
+</head>
+
+<body>
+{% include header %}
+
+<main>
+<article>
+
+{% include subheader %}
+
+{% include entry %}{% comment %} (Ends in double newline) {% endcomment %}{{ content }}{% comment %} (Ends in newline) {% endcomment %}
+{% if page.external.size > 0 -%}{% include links in=page.external section="external" heading="External links" %}
+
+{% endif %}</article>
+</main>
+
+{% include footer %}
+</body>
+
+</html>

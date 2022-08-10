@@ -1,0 +1,570 @@
+---
+---
+
+//  PRINT  //
+
+$print_white: #FAF8F7;
+$print_bright: #DEDBD9;
+$print_light: #B8B3B0;
+$print: #948D87;
+$print_medium: #75706A;
+$print_dark: #57534C;
+$print_dim: #302F2B;
+$print_black: #1F1A14;
+
+//  PASTELS  //
+
+$pastel_red: #B01C1C;
+$pastel_orange: #D15919;
+$pastel_gold: #EB9100;
+$pastel_yellow: #FAE13E;
+$pastel_green: #50D952;
+$pastel_cyan: #1AACEB;
+$pastel_blue: #4B2DF7;
+$pastel_pink: #F56E97;
+
+//  MIXES  //
+
+$mix_azure: mix($pastel_cyan, $pastel_blue);
+$mix_violet: mix($pastel_blue, $pastel_red);
+
+*:Root {
+	Font: Large / 1.35 Serif;
+	Font-Variant-Numeric: Oldstyle-Nums;
+}
+
+html {
+	$svg_stroke_string: "%23" + str_slice("#{$print_light}", 2);
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Color: $print_black;
+	Background: Url("data:image/svg+xml,<?xml version='1.0' \
+standalone='no'?><!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' \
+'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg \
+xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 3' version='1.1'>\
+<line x1='0' y1='1' x2='1' y2='0' stroke='#{$svg_stroke_string}' \
+stroke-linecap='square' stroke-width='1' /><line x1='1' y1='3' x2='3' \
+y2='1' stroke='#{$svg_stroke_string}' stroke-linecap='square' \
+stroke-width='1'/></svg>") Top Left / 2.125PX Repeat, $print_bright;
+	Quotes: "« " " »";
+}
+
+body {
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font: Inherit;
+
+	& > header {
+		Display: Block;
+		Margin: 0;
+		Border-Bottom: $print_dark Solid;
+		Padding: .75EX 1CH;
+		Color: $print_black;
+		Background: $print_white;
+		Font: Normal X-Large/1.2 Serif;
+		Text-Transform: Uppercase;
+		Text-Overflow: Ellipsis;
+		White-Space: NoWrap;
+		Overflow: Hidden;
+
+		a[href],
+		a[href]:Visited,
+		a[href]:Active { Color: Inherit;
+
+			&[href="/"] { Text-Decoration: None }
+			&:Not(:First-Of-Type) { Margin-Left: 2CH }
+		}
+
+		h1 { Display: Inline }
+
+		nav {
+			Display: Block;
+			Position: Relative;
+			Float: Right;
+			Margin: 0 -1CH 0 0;
+			Border: None;
+			Padding: 0 1CH;
+			Max-Width: 100%;
+			Color: $print_black;
+			Background: $print_white;
+			Text-Overflow: Ellipsis;
+			White-Space: NoWrap;
+			Overflow: Hidden;
+			Z-Index: 1;
+		}
+	}
+
+	& > footer {
+		Margin: Auto;
+		Padding: 0 1REM;
+		Font-Size: Small;
+		Max-Width: 138CH;
+
+		a[href],
+		a[href]:Visited,
+		a[href]:Active { Color: Inherit }
+
+		section {
+			Margin: 2EX 0 0;
+			Border-Top: Thin $print_medium Dashed;
+			Padding: 2EX 0 0;
+		}
+	}
+}
+
+main {
+	Display: Block;
+	Margin: 1REM;
+	Border: None;
+	Padding: 0;
+}
+
+article,
+aside,
+div,
+footer,
+header,
+nav,
+section,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	Display: Block;
+	Clear: Both;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+}
+
+article {
+	Margin: Auto;
+	Border: Thin $print_medium Solid;
+	Padding: 2REM;
+	Max-Width: 76CH;
+	Color: $print_black;
+	Background: $print_white;
+
+	article {
+		Margin: 0;
+		Border-Color: $print;
+		Padding: 1REM;
+		Max-Width: Auto;
+	}
+
+	& > header:First-Child {
+		Margin: -1REM -1REM 1REM;
+		Border-Style: None None Dashed;
+		Border-Color: Transparent Transparent $print;
+		Border-Width: 0 0 Thin;
+		Padding: 0 1CH 1EX;
+
+		p {
+			Display: Block;
+			Text-Indent: 0;
+			Color: $print_medium;
+			Font: 300 1REM/1.2 "Noto Sans", Sans-Serif;
+		}
+
+		& ~ aside { Margin: 1REM 0 }
+		& ~ aside + aside { Margin: -.5REM 0 1REM }
+		& ~ *:Not(aside) ~ aside { Margin: .5EX 0 }
+	}
+
+	& > footer:Last-Child {
+		Margin: 1REM -1REM -1REM;
+		Border-Style: Dashed None None;
+		Border-Color: $print Transparent Transparent;
+		Border-Width: Thin 0 0;
+		Padding: 1EX 2CH 0;
+	}
+}
+
+div[role=note] {
+	Margin: .5EX 0;
+	Padding: 0 3CH;
+	Color: $print_dark;
+	Background: $print_white;
+	Font-Size: Medium;
+	Font-Style: Italic;
+	Font-Weight: Normal;
+	Overflow: Hidden;
+}
+
+footer {
+	Margin: 1.5REM 0 1REM;
+	Font-Size: Medium;
+	Font-Weight: Normal;
+	Text-Align: Center;
+
+	p { Text-Align: Inherit }
+
+	p + p,
+	h5 + p,
+	h6 + p {
+		Margin-Top: 1EX;
+		Text-Indent: 0;
+
+		&::before { Content: None }
+	}
+}
+
+header { Margin: 1REM 0 1.5REM }
+
+nav,
+section {
+	Display: Block;
+	Clear: Both;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+
+	nav, section {
+		nav, section { Font-Size: Medium }
+	}
+
+	nav {
+		nav { Padding: 0 3CH }
+	 }
+}
+
+nav { Text-Align: Left;
+
+	ol,
+	ul,
+	li,
+	p { Text-Align: Inherit }
+
+	&#index {
+		Margin: 0 -2CH;
+		Text-Align: Center;
+
+		& > a {
+			Display: Inline-Block;
+			Width: 2CH;
+			Line-Height: 1;
+
+			&[href] {
+				Color: Inherit;
+				Font-Weight: Bold;
+
+				&:Hover {
+					Border-Bottom: Thin Solid;
+					Text-Decoration: None;
+				}
+			}
+		}
+	}
+}
+
+h1 { Font: 900 Normal X-Large/1.2 Serif;
+
+	a[href] & { Text-Decoration: Underline }
+}
+
+h2 {
+	Display: Block;
+	Position: Relative;
+	Box-Sizing: Content-Box;
+	Overflow: Hidden;
+	Color: $print_dark;
+	Background: $print_white;
+	Font: Bold Small-Caps XX-Large/1 Serif;
+	White-Space: NoWrap;
+	Text-Align: Center;
+	Text-Overflow: Ellipsis;
+
+	&[data-collection=entries] {
+		Font: Bold Small-Caps 1.2EM/1 Serif;
+		Text-Align: Start;
+	}
+
+	&[data-collection=words] {
+		Font: Bold Italic XX-Large/1 Serif;
+	}
+
+	&:Only-Child { // needs to come after the above
+		Min-Height: 2.4REM;
+		Line-Height: 2.4REM;
+	}
+
+	span {
+		&.COLLECTION {
+			Color: $print_dim;
+		}
+	}
+}
+
+h3 {
+	Margin: 2EX -.5REM 1.5EX;
+	Border-Bottom: Thin $print_light Solid;
+	Font: Bold X-Large/1.35 Serif;
+
+	&::after { Content: ":" }
+}
+
+h4 {
+	Margin: 2EX 0 1EX;
+	Font: Bold X-Large/1 Serif;
+
+	& > *.TEXT {
+		Text-Decoration: Underline;
+		Text-Decoration-Color: $print_light;
+	}
+}
+
+h5 {
+	Margin: 1EX 0 0;
+	Font: Bold Large/1.35 Serif;
+
+	&::after { content: "." }
+}
+
+h6 {
+	Margin: 1EX 0 0;
+	Font: Bold Medium/1.35 Serif;
+	Text-Transform: Uppercase;
+}
+
+ol,
+ul,
+li,
+p {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Text-Align: Justify;
+}
+
+ol,
+ul {
+	Margin: 1EX 0;
+	Padding: 0 4CH 0 6CH;
+
+	li & {
+		li & {
+			Margin: 0;
+			Padding: 0 0 0 4CH;
+			Font-Size: Medium;
+			Text-Align: Left;
+		}
+	}
+}
+
+ol { List-Style: Decimal;
+
+	li & { List-Style: Upper-Alpha;
+
+		li & { List-Style: Upper-Roman;
+
+			li & { List-Style: Lower-Alpha;
+
+				li & { List-Style: Lower-Roman }
+			}
+		}
+	}
+}
+
+ul { List-Style: "❧ ";
+
+	&.GUIDE {
+		Padding: 0 0 0 9CH;
+		List-Style: None;
+	}
+
+	nav.LINKS > & { List-Style: "⎋ " }
+
+	li & { List-Style: "† ";
+
+		&.GUIDE {
+			Margin: 0;
+			Padding: 0 0 0 4CH;
+		}
+
+		li & { List-Style: "‡ ";
+
+			li & { List-Style: "※ ";
+
+				li & { List-Style: "⁂ " }
+			}
+		}
+	}
+}
+
+li { Display: List-Item;
+
+	& > p:Last-Child,
+	& > p ~ *:Last-Child { Margin-Bottom: 1EX }
+
+	li li & { Text-Align: Inherit;
+
+		& > p { Text-Align: Inherit }
+		& > p:Last-Child,
+		& > p ~ *:Last-Child { Margin-Bottom: 0 }
+	}
+}
+
+p {
+	Display: Block;
+	Position: Relative;
+	Margin: 0;
+	Border: none;
+	Padding: 0;
+
+	& > * { Text-Indent: 0 }
+
+	p + &,
+	h5 + &,
+	h6 + & { Text-Indent: 4CH;
+
+		&::before {
+			Display: Block;
+			Position: Absolute;
+			Left: 0;
+			Border: None;
+			Padding: 0;
+			Width: 4CH;
+			Color: $print;
+			Font: Inherit;
+			Text-Align: Center;
+			Text-Indent: 0;
+			Content: "¶";
+		}
+	}
+}
+
+a[href] {
+	Display: Inline;
+	Color: $mix_azure;
+	Text-Decoration: None;
+
+	& > *:Not(:Last-Child) { Text-Decoration: Underline }
+	& > span:Last-Child {
+		&::before {
+			Display: Inline-Block;
+			Margin: 0 -1EM 0 0;
+			Width: 1EM;
+			White-Space: Pre;
+			Text-Align: Left;
+			Text-Decoration: Underline;
+			Content: " ";
+		}
+
+		&:Not(:First-Child)::before {
+			Margin-Left: -.5EM;
+			Width: 1.5EM;
+			Content: "\2004\2007";
+		}
+	}
+
+	&:Not(.SECTION):Focus {
+		Outline: None;
+		Text-Decoration: Dotted Underline;
+	}
+
+	&:Active,
+	&:Hover { Text-Decoration: Underline;
+
+		& > *:Not(:Last-Child),
+		& > span:Last-Child::before { Text-Decoration: None }
+	}
+
+	&:Visited, &.VISITED { Color: $mix_violet }
+	&:Active, &.NOTFOUND { Color: $pastel_red }
+
+	&.SECTION {
+		Color: $print_medium;
+		Font-Weight: Normal;
+		Text-Decoration: None;
+
+		&:Hover { Color: $print_dim }
+
+		h4 &, h5 &, h6 & { Color: $print_light;
+
+			&:Hover { Color: $print_medium }
+		}
+	}
+
+	#topics & {
+		Border: Thin Transparent Solid;
+		Border-Radius: .5EX;
+		Padding: 0 .5CH;
+		Color: $pastel_blue;
+		Background: Transparent;
+		Text-Decoration: Dashed Underline;
+
+		& > *:Not(:Last-Child),
+		& > span:Last-Child::before { Text-Decoration: None }
+
+		&:Focus {
+			Border: Thin rgba($pastel_blue, .85) Dotted;
+			Transition: .15S Border-Color, .15S Background-Color;
+		}
+
+		&:Active,
+		&:Hover {
+			Border: Thin rgba($pastel_blue, .85) Solid;
+			Background: rgba($pastel_blue, .15);
+			Text-Decoration: Underline;
+			Transition: .15S Border-Color, .15S Background-Color;
+		}
+
+		&.NOTFOUND { Color: $pastel_red;
+
+			&:Focus { Border: Thin rgba($pastel_red, .85) Dotted }
+
+			&:Active,
+			&:Hover {
+				Border: Thin rgba($pastel_red, .85) Solid;
+				Background: rgba($pastel_red, .15);
+			}
+		}
+
+		&:Active,
+		&.NOTFOUND:Active { Background: Transparent }
+	}
+}
+
+dfn {
+	Font-Style: Inherit;
+	Font-Weight: Bold;
+}
+
+span.SIGIL { Font-Style: Inherit;
+
+	& + span.COLLECTION {
+		Display: Block;
+		Position: Absolute;
+		Margin: -1PX -1PX 0 0;
+		Width: 1PX;
+		Height: 1PX;
+		Overflow: Hidden;
+	}
+}
+
+sub {
+	Display: Inline-Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font-Size: X-Small;
+	Font-Variant: Small-Caps;
+	Line-Height: 1;
+	Vertical-Align: Sub;
+}
+
+sup {
+	Display: Inline-Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font-Size: X-Small;
+	Font-Style: Normal;
+	Line-Height: 1;
+	Vertical-Align: Super;
+}

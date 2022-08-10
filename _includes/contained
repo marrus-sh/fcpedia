@@ -1,0 +1,11 @@
+{% assign entries = "" | split: "" -%}
+{% for entry in include.from -%}
+	{% for topic in entry.topics -%}
+		{% if topic == page.slug -%}
+			{% assign entries = entries | push: entry -%}
+		{% endif -%}
+	{% endfor -%}
+{% endfor -%}
+{% assign entries = entries | sort_natural: "title" -%}
+
+{% include entries in=entries section=include.section heading=include.heading %}

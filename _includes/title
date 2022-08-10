@@ -1,0 +1,25 @@
+{% if include.full -%}
+	{% assign collection = site.collections | where: "label", include.of.collection | first -%}
+	{% unless collection -%}
+		{% assign collection = site.collections | where: "label", "entries" | first -%}
+	{% endunless -%}
+	{% if collection and collection.title -%}
+		{% unless include.plain -%}
+			<span class="COLLECTION">{% endunless -%}
+		{{ collection.title }} :: {% unless include.plain -%}
+			</span>{% endunless -%}
+	{% endif -%}
+{% endif -%}
+{% unless include.plain -%}
+	{% if linked.collection == "words" -%}
+		<i>{% else -%}
+		<span>{% endif -%}
+{% endunless -%}
+{% if include.full -%}
+	{{ include.of.title | default: include.of }}{% else -%}
+	{{ include.of.shorttitle | default: include.of.title | default: include.of }}{% endif -%}
+{% unless include.plain -%}
+	{% if linked.collection == "words" -%}
+		</i>{% else -%}
+		</span>{% endif -%}
+{% endunless -%}

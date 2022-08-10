@@ -1,0 +1,8 @@
+{% if include.in.size > 0 -%}
+<nav id="{{ include.section }}"{% if include.section %} aria-labelledby="{{ include.section }}"{% endif %}>
+	{% include heading level=3 section=include.section text=include.heading %}
+
+	<ul>{% for entry in include.in %}
+		<li>{% include link to=entry from=include.from full=false %}</li>{% endfor %}
+	</ul>
+</nav>{% endif -%}

@@ -1,0 +1,16 @@
+<footer>
+	<p>
+		{{ site.copyright }}
+		Some rights reserved.
+		This work is licensed under a {% include link rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0 International License" %}.
+	</p>
+	<p>
+		This site is open source.
+		It is built with {% include link href="https://jekyllrb.com/" text="Jekyll" %} + {% include link href="https://pages.github.com/" text="GitHub Pages" %}, and you can view the underlying source code at {% include link href="https://github.com/marrus-sh/fcpedia" text="<code>marrus-sh/fcpedia</code> on GitHub" %}.
+	</p>
+	<section id="banners" aria-label="Banners">
+		<p>
+			{% include link href="http://creativecommons.org/licenses/by-sa/4.0/" banner="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" text="Creative Commons BY-SA License" %}
+		</p>
+	</section>
+</footer>{% comment %} (Strip trailing whitespace) {% endcomment -%}

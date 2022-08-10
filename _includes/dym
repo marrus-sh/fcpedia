@@ -1,0 +1,10 @@
+{% if page.dym.size > 0 -%}
+	<aside>{% for dym in page.dym -%}
+		{% assign entry = site[page.collection] | where: "slug", dym | first -%}
+		{% if entry -%}
+		<p>For the {{ entry.subtitle }}, see: {% include link to=entry full=false -%}
+		.</p>{% endif -%}
+	{% endfor -%}
+	</aside>{% comment %}Intentional newline{% endcomment %}
+{% comment %}Intentional newline{% endcomment %}
+{% endif -%}

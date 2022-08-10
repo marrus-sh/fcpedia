@@ -1,0 +1,11 @@
+{% if include.level == 1 or include.level == 2 or include.level == 3 or include.level == 4 or include.level == 5 or include.level == 6 -%}
+	{% assign level = include.level -%}
+{% elsif level > 6 -%}
+	{% assign level = 6 -%}
+{% else -%}
+	{% assign level = 3 -%}
+{% endif -%}
+
+<h{{ level }}{% if level > 6 %} aria-level="{{ level }}"{% endif %}>{% if include.section -%}
+	<a class="SECTION" href="#{{ include.section }}">§</a> {% endif -%}
+<span class="TEXT">{{ include.text }}</span></h{{ level }}>{% comment %} (Strip trailing whitespace) {% endcomment -%}

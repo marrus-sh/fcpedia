@@ -1,0 +1,66 @@
+{% assign linked = nil -%}
+{% if include.full != nil -%}
+	{% assign mark = false -%}
+{% else -%}
+	{% assign mark = true -%}
+{% endif -%}
+{% if include.href -%}
+	<a href="{{ include.href }}" rel="external nofollow noopener{% unless include.referrer %} noreferrer{% endunless %}{% if include.rel %}{{ include.rel | prepend: " " }}{% endif %}">{% if include.banner -%}
+		{% comment %}No additional title.{% endcomment -%}
+	{% elsif mark -%}
+		<span class="SIGIL" aria-hidden="true">⎋ </span><span class="COLLECTION">External : </span>{% elsif include.full -%}
+		<span class="COLLECTION">External :: </span>{% endif -%}
+	{% if include.banner -%}
+		<img class="BANNER" width="88" height="31" src="{{ include.banner }}"{% if include.title %} title="{{ include.title }}"{% endif %}{% if include.title or include.text %} alt="{{ include.text | default: include.title }}"{% endif %} />{% elsif include.title -%}
+		<span><cite>{{ include.title }}</cite></span>{% else -%}
+		<span>{{ include.text | default: include.href }}</span>{% endif -%}
+	</a>{% else -%}
+	{% if include.to.url -%}
+		{% assign linked = include.to -%}
+	{% elsif page.collection == "words" -%}
+		{% assign linked = include.from | default: site.words | where: "slug", include.to | first -%}
+	{% else -%}
+		{% assign linked = include.from | default: site.entries | where: "slug", include.to | first -%}
+	{% endif -%}
+	{% if linked -%}
+		{% if page.collection == "entries" and linked.collection == "entries" -%}
+			{% assign mark = false -%}
+		{% elsif page.collection == "words" and linked.collection == "words" -%}
+			{% assign mark = false -%}
+		{% endif -%}
+		<a href="{{ linked.url | remove_first: "/index" | relative_url }}"{% if include.text or include.full != true %} title="{% include title of=linked full=true plain=true %}"{% endif %}>{% if mark -%}
+			{% assign collection = site.collections | where: "label", linked.collection | first -%}
+				<span class="SIGIL" aria-hidden="true">{{ collection.sigil }} </span><span class="COLLECTION">{{ collection.title }} :: </span>{% endif -%}
+			{% if include.text -%}
+			<span>{{ include.text }}</span>{% else -%}
+			{% include title of=linked full=include.full %}{% endif -%}
+		</a>{% else -%}
+		{% if include.from -%}
+			{% assign linked = include.from | first -%}
+			{% assign collection = site.collections | where: "label", linked.collection | first -%}
+			{% if page.collection == "entries" and linked.collection == "entries" -%}
+				{% assign mark = false -%}
+			{% elsif page.collection == "words" and linked.collection == "words" -%}
+				{% assign mark = false -%}
+			{% endif -%}
+			{% assign linked = nil -%}
+		{% elsif page.collection == "words" -%}
+			{% assign collection = site.collections | where: "label", page.collection | first -%}
+			{% assign mark = false -%}
+		{% else -%}
+			{% assign linked = site.data.todo[include.to] -%}
+			{% assign collection = site.collections | where: "label", "entries" | first -%}
+			{% if page.collection == "entries" -%}
+				{% assign mark = false -%}
+			{% endif -%}
+		{% endif -%}
+		<a class="NOTFOUND" href="{{ collection.permalink | remove_first: ":title/" | append: include.to | append: "/" | relative_url }}"{% if linked %}{% if include.text or include.full != true %} title="{% include title of=linked full=true plain=true %}"{% elsif include.text %} title="{{ include.to | replace: "'", "’" | replace: "-", "‐" | replace: "_", " " }}"{% endif %}{% endif %}>{% if mark -%}
+			<span class="SIGIL" aria-hidden="true">{{ collection.sigil }} </span><span class="COLLECTION">{{ collection.title }} :: </span>{% endif -%}
+			{% if include.text -%}
+				<span>{{ include.text }}</span>{% else -%}
+				{% if linked -%}
+					{% include title of=linked full=include.full %}{% else -%}
+					<span>{{ include.to | replace: "'", "’" | replace: "-", "‐" | replace: "_", " " }}</span>{% endif -%}
+			{% endif -%}
+		</a>{% endif -%}
+{% endif -%}

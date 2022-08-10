@@ -1,0 +1,7 @@
+{% assign entry = site.entries | where: "slug", page.slug | first -%}
+
+{% if entry -%}
+	<div role="note"><p>There is an entry associated with this topic: {% include link to=entry full=false -%}
+	.</p></div>{% comment %}Intentional newline {% endcomment %}
+{% comment %}Intentional newline {% endcomment %}
+{% endif -%}
