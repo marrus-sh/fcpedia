@@ -16,8 +16,6 @@
 {% include definition %}{% comment %} (Ends in double newline) {% endcomment %}{% include dym %}{% comment %} (Ends in double newline) {% endcomment %}{{ content }}{% comment %} (Ends in newline) {% endcomment %}
 {% if page.related.size > 0 -%}{% include entries in=page.related section="related" heading="Related entries" %}
 
-{% endif %}{% if page.elsewhere.size > 0 -%}{% include links in=page.elsewhere section="elsewhere" heading="In other cultures" %}
-
 {% endif %}{% if page.external.size > 0 -%}{% include links in=page.external section="external" heading="External links" %}
 
 {% endif %}{% include topics %}{% comment %} (Ends in double newline) {% endcomment %}</article>
