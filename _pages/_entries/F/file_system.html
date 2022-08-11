@@ -1,16 +1,18 @@
 ---
-title: filesystem
+title: file system
 subtitle: mechanism for storing & retrieving computer data
 redirect_from:
-- file_system
+- filesystem
+topics:
+- Unix
 external:
 - title: "Wikipedia: File system"
   url: https://en.wikipedia.org/wiki/File_system
 ---
 
 <p>
-	A <dfn>filesystem</dfn> is a conceptual framework for information storage and retrieval on a computer.
-	Filesystems provide a more human‐ and application‐friendly interface for navigating the data present on a storage medium.
+	A <dfn>file system</dfn> is a conceptual framework for information storage and retrieval on a computer.
+	File systems provide a more human‐ and application‐friendly interface for navigating the data present on a storage medium.
 </p>
 
 <section id="idea">
@@ -29,29 +31,35 @@ external:
 	<p>
 		You can make life easier for your friend by preparing a list of start and stop times for each of the songs on your mixtape.
 		You might also annotate this list with helpful bits of information, like « <i style="Font-Family: Cursive">this song reminds me of you ♡</i> » or « <i style="Font-Family: Cursive">remember when we danced?</i> ».
-		<strong>This list of songs forms a rudimentary filesystem</strong> for your mixtape and makes convenient information retrieval possible.
+		<strong>This list of songs forms a rudimentary file system</strong> for your mixtape and makes convenient information retrieval possible.
 	</p>
 	<p>
-		At their most basic level, all filesystems operate like your list of songs for your friend:
+		At their most basic level, all file systems operate like your list of songs for your friend:
 		They provide a computer with start 🔜 and stop 🔚 positions for all of the files on your hard drive (or other storage medium).
-		However, filesystems have another important purpose, which is to provide <em>useful information to you</em> (the user of the computer), and to programs acting on your behalf.
-		<strong>Most filesystems conceptually organize files into a tree structure</strong> for your benefit, with “folders” or “directories” 📂 comprising all of the branching parts of the structure, and “files” 📄 making up the leaf nodes.
+		However, file systems have another important purpose, which is to provide <em>useful information to you</em> (the user of the computer), and to programs acting on your behalf.
+		<strong>Most file systems conceptually organize files into a {% include link to="tree_structure" %}</strong> for your benefit, with “folders” or “directories” 📂 comprising all of the branching parts of the structure, and “files” 📄 making up the leaf nodes.
 		Tree structures let you remember the location of files in terms of their “path” through the structure, so you can say “file <code>solong_gaybowser.png</code> is in <code>/Users/me/Pictures/funny/</code>” instead of “file <code>solong_gaybowser.png</code> starts at byte 420 of block 69 and continues for another 2048 bytes”.
 	</p>
 	<p>
-		With modern advancements in computers giving you things you didn’t ask for (and also some things you did), it’s less important for people today to remember the exact paths of files in their filesystem, because they can just ask the computer to find the file for them whenever they forget.
+		With modern advancements in computers giving you things you didn’t ask for (and also some things you did), it’s less important for people today to remember the exact paths of files in their file system, because they can just ask the computer to find the file for them whenever they forget.
 		This is fine if you are a living being, capable of providing responsible feedback like “this isn’t the file I was looking for” 🤖🙅.
-		Programs generally do not have this capacity, and so <strong>understanding the filesystem is very important for anyone who is doing any programming.</strong>
+		Programs generally do not have this capacity, and so <strong>understanding the file system is very important for anyone who is doing any programming.</strong>
 	</p>
 </section>
 
 <section id="types">
-	{% include heading level=3 section="types" text="Types of Filesystems" %}
+	{% include heading level=3 section="types" text="Types of File Systems" %}
 
 	<p>
-		Because the people who make computers can never agree on anything, there are lots of different types of filesystems.
-		Some kinds of filesystems include FAT, exFAT, NTFS, HFS+, APFS, ext4, and ZFS.
-		Thankfully, most {% include link to="operating_system" text="operating systems" %} abstract away the exact particularities of the underlying filesystem and provide a single <em>virtual</em> filesystem for users to interact with.
-		For example, people using {% include link to="Unix" %} typically do not need to know what kind of filesystem their storage media uses, so long as they are comfortable with the virtual filesystem that Unix provides.
+		Because the people who make computers can never agree on anything, there are lots of different types of file systems.
+		Some kinds of file systems include FAT, exFAT, NTFS, HFS+, APFS, ext4, and ZFS.
+		Thankfully, most {% include link to="operating_system" text="operating systems" %} abstract away the exact particularities of the underlying file system and provide a single <em>virtual</em> file system for users to interact with.
+		For example, people using {% include link to="Unix" %} typically do not need to know what kind of file system their storage media uses, so long as they are comfortable with the virtual file system that Unix provides.
 	</p>
+
+	<section id="types.unix">
+		{% include heading level=4 section="types.unix" text="The Unix File System" %}
+
+		<p>This section still needs to be written…</p>
+	</section>
 </section>
