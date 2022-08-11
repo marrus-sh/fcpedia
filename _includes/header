@@ -7,10 +7,10 @@
 {% endfor -%}
 
 <header>{% if links.size > 0 %}
-	<nav>{% for link in links %}
-		{% include link to=link full=false %}{% endfor %}
-	</nav>{% endif %}
 	<a href="{{ '/' | relative_url }}">
 		<h1>{{ site.title | default: site.github.repository_name }}</h1>
 	</a>
+	<nav>{% for link in links %}
+		{% include link to=link full=false %}{% endfor %}
+	</nav>{% endif %}
 </header>{% comment %} (Strip trailing whitespace) {% endcomment -%}

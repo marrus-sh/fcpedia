@@ -6,7 +6,7 @@
 	</p>
 	<p>
 		This site is open source.
-		It is built with {% include link href="https://jekyllrb.com/" text="Jekyll" %} + {% include link href="https://pages.github.com/" text="GitHub Pages" %}, and you can view the underlying source code at {% include link href="https://github.com/marrus-sh/fcpedia" text="<code>marrus-sh/fcpedia</code> on GitHub" %}.
+		It is built with {% include link href="https://jekyllrb.com/" text="Jekyll" %} + {% include link href="https://pages.github.com/" text="GitHub Pages" %}, and you can view the underlying source code at {% assign gh_text = "<code>" | append: site.github.repository_nwo | append: "</code> on GitHub" %}{% include link href=site.github.repository_url text=gh_text %}.
 	</p>
 	<section id="banners" aria-label="Banners">
 		<p>

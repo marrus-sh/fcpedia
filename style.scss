@@ -51,65 +51,59 @@ stroke-width='1'/></svg>") Top Left / 2.125PX Repeat, $print_bright;
 }
 
 body {
+	Display: Flow-Root;
 	Margin: 0;
 	Border: None;
 	Padding: 0;
 	Font: Inherit;
 
 	& > header {
-		Display: Block;
+		Display: Flex;
 		Margin: 0;
-		Border-Bottom: $print_dark Solid;
-		Padding: .75EX 1CH;
+		Border-Block-End: $print_dark Solid;
+		Padding-Block: .75EX;
+		Flex-Flow: Row Wrap;
 		Color: $print_black;
 		Background: $print_white;
 		Font: Normal X-Large/1.2 Serif;
 		Text-Transform: Uppercase;
-		Text-Overflow: Ellipsis;
-		White-Space: NoWrap;
-		Overflow: Hidden;
+
+		& > * {
+			Display: Block;
+			Flex: Auto;
+			Padding-Inline: 1CH;
+			Max-Inline-Size: 100%;
+			Text-Overflow: Ellipsis;
+			White-Space: NoWrap;
+			Overflow: Hidden;
+		}
 
 		a[href],
 		a[href]:Visited,
 		a[href]:Active { Color: Inherit;
 
 			&[href="/"] { Text-Decoration: None }
-			&:Not(:First-Of-Type) { Margin-Left: 2CH }
+			&:Not(:First-Of-Type) { Margin-Inline-Start: 2CH }
 		}
 
 		h1 { Display: Inline }
-
-		nav {
-			Display: Block;
-			Position: Relative;
-			Float: Right;
-			Margin: 0 -1CH 0 0;
-			Border: None;
-			Padding: 0 1CH;
-			Max-Width: 100%;
-			Color: $print_black;
-			Background: $print_white;
-			Text-Overflow: Ellipsis;
-			White-Space: NoWrap;
-			Overflow: Hidden;
-			Z-Index: 1;
-		}
+		nav { Text-Align: Right }
 	}
 
 	& > footer {
 		Margin: Auto;
-		Padding: 0 1REM;
+		Padding-Inline: 1REM;
+		Max-Inline-Size: 138CH;
 		Font-Size: Small;
-		Max-Width: 138CH;
 
 		a[href],
 		a[href]:Visited,
 		a[href]:Active { Color: Inherit }
 
 		section {
-			Margin: 2EX 0 0;
-			Border-Top: Thin $print_medium Dashed;
-			Padding: 2EX 0 0;
+			Margin-Block-Start: 2EX;
+			Border-Block-Start: Thin $print_medium Dashed;
+			Padding-Block-Start: 2EX;
 		}
 	}
 }
@@ -123,7 +117,8 @@ main {
 
 article,
 aside,
-div,
+blockquote,
+div[role=note],
 footer,
 header,
 nav,
@@ -134,18 +129,24 @@ h3,
 h4,
 h5,
 h6 {
-	Display: Block;
 	Clear: Both;
 	Margin: 0;
 	Border: None;
 	Padding: 0;
 }
 
+article,
+aside,
+blockquote,
+div[role=note],
+footer,
+header { Display: Flow-Root }
+
 article {
 	Margin: Auto;
 	Border: Thin $print_medium Solid;
 	Padding: 2REM;
-	Max-Width: 76CH;
+	Max-Inline-Size: 76CH;
 	Color: $print_black;
 	Background: $print_white;
 
@@ -157,46 +158,46 @@ article {
 	}
 
 	& > header:First-Child {
-		Margin: -1REM -1REM 1REM;
-		Border-Style: None None Dashed;
-		Border-Color: Transparent Transparent $print;
-		Border-Width: 0 0 Thin;
-		Padding: 0 1CH 1EX;
+		Margin-Block: -1REM 1REM;
+		Margin-Inline: -1REM;
+		Border-Block-End: Thin $print Dashed;
+		Padding-Block: 0 1EX;
+		Padding-Inline: 1CH;
 
 		p {
 			Display: Block;
 			Text-Indent: 0;
 			Color: $print_medium;
-			Font: 300 1REM/1.2 "Noto Sans", Sans-Serif;
+			Font: 300 1REM/1.2 Sans-Serif;
 		}
 
-		& ~ aside { Margin: 1REM 0 }
-		& ~ aside + aside { Margin: -.5REM 0 1REM }
-		& ~ *:Not(aside) ~ aside { Margin: .5EX 0 }
+		& ~ aside { Margin-Block: 1REM }
+		& ~ aside + aside { Margin-Block: -.5REM 1REM }
+		& ~ *:Not(aside) ~ aside { Margin-Block: .5EX }
 	}
 
 	& > footer:Last-Child {
-		Margin: 1REM -1REM -1REM;
-		Border-Style: Dashed None None;
-		Border-Color: $print Transparent Transparent;
-		Border-Width: Thin 0 0;
-		Padding: 1EX 2CH 0;
+		Margin-Block: 1REM -1REM;
+		Margin-Inline: -1REM;
+		Border-Block-Start: Thin $print Dashed;
+		Padding-Block: 1EX 0;
+		Padding-Inline: 1CH;
 	}
 }
 
 div[role=note] {
-	Margin: .5EX 0;
-	Padding: 0 3CH;
+	Display: Flow-Root;
+	Margin-Block: .5EX;
+	Padding-Inline: 3CH;
 	Color: $print_dark;
 	Background: $print_white;
 	Font-Size: Medium;
 	Font-Style: Italic;
 	Font-Weight: Normal;
-	Overflow: Hidden;
 }
 
 footer {
-	Margin: 1.5REM 0 1REM;
+	Margin-Block: 1.5REM 1REM;
 	Font-Size: Medium;
 	Font-Weight: Normal;
 	Text-Align: Center;
@@ -206,30 +207,25 @@ footer {
 	p + p,
 	h5 + p,
 	h6 + p {
-		Margin-Top: 1EX;
+		Margin-Block-Start: 1EX;
 		Text-Indent: 0;
 
 		&::before { Content: None }
 	}
 }
 
-header { Margin: 1REM 0 1.5REM }
+header { Margin-Block: 1REM 1.5REM }
 
 nav,
-section {
-	Display: Block;
-	Clear: Both;
-	Margin: 0;
-	Border: None;
-	Padding: 0;
+section { Display: Block;
 
 	nav, section {
 		nav, section { Font-Size: Medium }
 	}
 
 	nav {
-		nav { Padding: 0 3CH }
-	 }
+		nav { Padding-Inline: 3CH }
+	}
 }
 
 nav { Text-Align: Left;
@@ -240,12 +236,12 @@ nav { Text-Align: Left;
 	p { Text-Align: Inherit }
 
 	&#index {
-		Margin: 0 -2CH;
+		Margin-Inline: -2CH;
 		Text-Align: Center;
 
 		& > a {
 			Display: Inline-Block;
-			Width: 2CH;
+			Inline-Size: 2CH;
 			Line-Height: 1;
 
 			&[href] {
@@ -267,19 +263,14 @@ h1 { Font: 900 Normal X-Large/1.2 Serif;
 }
 
 h2 {
-	Display: Block;
-	Position: Relative;
-	Box-Sizing: Content-Box;
 	Overflow: Hidden;
 	Color: $print_dark;
-	Background: $print_white;
 	Font: Bold Small-Caps XX-Large/1 Serif;
-	White-Space: NoWrap;
 	Text-Align: Center;
 	Text-Overflow: Ellipsis;
 
 	&[data-collection=entries] {
-		Font: Bold Small-Caps 1.2EM/1 Serif;
+		Font: Bold Small-Caps 1.2REM/1 Serif;
 		Text-Align: Start;
 	}
 
@@ -293,14 +284,16 @@ h2 {
 	}
 
 	span {
-		&.COLLECTION {
-			Color: $print_dim;
+		&.COLLECTION { Color: $print_dim;
+
+			&::after { Content: "\200B" }
 		}
 	}
 }
 
 h3 {
-	Margin: 2EX -.5REM 1.5EX;
+	Margin-Block: 2EX 1.5EX;
+	Margin-Inline: -.5REM;
 	Border-Bottom: Thin $print_light Solid;
 	Font: Bold X-Large/1.35 Serif;
 
@@ -308,7 +301,7 @@ h3 {
 }
 
 h4 {
-	Margin: 2EX 0 1EX;
+	Margin-Block: 2EX 1EX;
 	Font: Bold X-Large/1 Serif;
 
 	& > *.TEXT {
@@ -318,14 +311,14 @@ h4 {
 }
 
 h5 {
-	Margin: 1EX 0 0;
+	Margin-Block: 1EX 0;
 	Font: Bold Large/1.35 Serif;
 
 	&::after { content: "." }
 }
 
 h6 {
-	Margin: 1EX 0 0;
+	Margin-Block: 1EX 0;
 	Font: Bold Medium/1.35 Serif;
 	Text-Transform: Uppercase;
 }
@@ -343,13 +336,13 @@ p {
 
 ol,
 ul {
-	Margin: 1EX 0;
-	Padding: 0 4CH 0 6CH;
+	Margin-Block: 1EX;
+	Padding-Inline: 6CH 4CH;
 
 	li & {
 		li & {
 			Margin: 0;
-			Padding: 0 0 0 4CH;
+			Padding-Inline: 4CH 0;
 			Font-Size: Medium;
 			Text-Align: Left;
 		}
@@ -373,7 +366,7 @@ ol { List-Style: Decimal;
 ul { List-Style: "❧ ";
 
 	&.GUIDE {
-		Padding: 0 0 0 9CH;
+		Padding-Inline: 9CH 0;
 		List-Style: None;
 	}
 
@@ -383,7 +376,7 @@ ul { List-Style: "❧ ";
 
 		&.GUIDE {
 			Margin: 0;
-			Padding: 0 0 0 4CH;
+			Padding-Inline: 4CH 0;
 		}
 
 		li & { List-Style: "‡ ";
@@ -399,22 +392,17 @@ ul { List-Style: "❧ ";
 li { Display: List-Item;
 
 	& > p:Last-Child,
-	& > p ~ *:Last-Child { Margin-Bottom: 1EX }
+	& > p ~ *:Last-Child { Margin-Block-End: 1EX }
 
 	li li & { Text-Align: Inherit;
 
 		& > p { Text-Align: Inherit }
 		& > p:Last-Child,
-		& > p ~ *:Last-Child { Margin-Bottom: 0 }
+		& > p ~ *:Last-Child { Margin-Block-End: 0 }
 	}
 }
 
-p {
-	Display: Block;
-	Position: Relative;
-	Margin: 0;
-	Border: none;
-	Padding: 0;
+p { Position: Relative;
 
 	& > * { Text-Indent: 0 }
 
@@ -425,10 +413,8 @@ p {
 		&::before {
 			Display: Block;
 			Position: Absolute;
-			Left: 0;
-			Border: None;
-			Padding: 0;
-			Width: 4CH;
+			Inset-Inline-Start: 0;
+			Inline-Size: 4CH;
 			Color: $print;
 			Font: Inherit;
 			Text-Align: Center;
@@ -447,8 +433,8 @@ a[href] {
 	& > span:Last-Child {
 		&::before {
 			Display: Inline-Block;
-			Margin: 0 -1EM 0 0;
-			Width: 1EM;
+			Margin-Inline-End: -1EM;
+			Inline-Size: 1EM;
 			White-Space: Pre;
 			Text-Align: Left;
 			Text-Decoration: Underline;
@@ -456,8 +442,8 @@ a[href] {
 		}
 
 		&:Not(:First-Child)::before {
-			Margin-Left: -.5EM;
-			Width: 1.5EM;
+			Margin-Inline-Start: -.5EM;
+			Inline-Size: 1.5EM;
 			Content: "\2004\2007";
 		}
 	}
@@ -493,7 +479,7 @@ a[href] {
 	#topics & {
 		Border: Thin Transparent Solid;
 		Border-Radius: .5EX;
-		Padding: 0 .5CH;
+		Padding-Inline: .5CH;
 		Color: $pastel_blue;
 		Background: Transparent;
 		Text-Decoration: Dashed Underline;
@@ -544,14 +530,12 @@ span.SIGIL { Font-Style: Inherit;
 		Width: 1PX;
 		Height: 1PX;
 		Overflow: Hidden;
+		Clip-Path: Inset(50%);
 	}
 }
 
 sub {
 	Display: Inline-Block;
-	Margin: 0;
-	Border: None;
-	Padding: 0;
 	Font-Size: X-Small;
 	Font-Variant: Small-Caps;
 	Line-Height: 1;
@@ -560,9 +544,6 @@ sub {
 
 sup {
 	Display: Inline-Block;
-	Margin: 0;
-	Border: None;
-	Padding: 0;
 	Font-Size: X-Small;
 	Font-Style: Normal;
 	Line-Height: 1;
