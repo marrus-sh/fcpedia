@@ -1,0 +1,21 @@
+---
+# This page generates a JSON representation of all of the pages in this
+# encyclopedia.
+#
+# The format is:
+#
+# { "collection_name":
+#    { "title": "collection title (or empty)"
+#    , "sigil": "collection sigil"
+#    , "docs":
+#      [
+#        { "title": "Page title"
+#        , "shorttitle": "Page shorttitle (may be absent)"
+#        , "slug": "Page slug"
+#        , "path": "Page path (from root, with a leading slash)" } ] } }
+#
+# The intent is that this JSON can be consumed to provide a basic
+# search.
+layout: # no layout
+---
+{% assign obrace = "{" %}{% assign clobrace = "}" %}{{ obrace }}{% for collection in site.collections %}"{{ collection.label }}":{{ obrace }}"title":{{ collection.title | default: "" | jsonify }},"sigil":{{ collection.sigil | default: "" | jsonify }},"docs":[{% for doc in collection.docs %}{{ obrace }}"title":{{ doc.title | jsonify }}{% if doc.shorttitle %},"shorttitle":{{ doc.shorttitle | jsonify }}{% endif %},"slug":{{ doc.slug | jsonify }},"path":{{ doc.url | relative_url | jsonify }}{{ clobrace }}{% unless forloop.last %},{% endunless %}{% endfor %}]{{ clobrace }}{% unless forloop.last %},{% endunless %}{% endfor %}{{ clobrace }}
