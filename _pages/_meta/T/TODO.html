@@ -4,8 +4,8 @@ title: TODO
 <p>
 	The following entries are known to still need content:
 </p>
-<ul>{% for item in site.data.todo %}{% assign slug = item[0] %}{% assign text = item[1] %}
-	<li>{% include link to=slug text=text full=false %}</li>{% endfor %}
+<ul>{% for item in site.data.todo %}{% assign slug = item[0] %}{% assign info = item[1] %}
+	<li>{% include link to=slug full=false %}{% if info.comment %} ({{ info.comment }}){% endif %}</li>{% endfor %}
 </ul>
 <p>
 	Entries must be manually added to this list{% comment %} (at <code>/_data/todo.yml</code>){% endcomment %} for them to appear.

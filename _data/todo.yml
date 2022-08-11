@@ -1,6 +1,47 @@
+# things to do which aren’t pages:
+#
+# • add support for page authors
+#
+# • fix the header on small screens
+#
+#    • more things should be allowed to wrap than currently are!
+#
+# • generally revise the stylesheet; it hasn’t been meaningfully
+#   touched in years
+#
+# • add a simple search for pages by title—see pages.json
+CSS:
+  title: Cascading Style Sheets
+  shorttitle: CSS
 Fandom_Coders: Fandom Coders
-Git: Git
+Git:
+  title: Git
+  comment: there is also doubtless a need for various pages on specific git concepts
+HTML:
+  title: Hypertext Markup Language
+  shorttitle: HTML
+JavaScript:
+  title: JavaScript
+  comment: probably should redirect from ECMAScript
+JSON:
+  title: JavaScript Object Notation
+  shorttitle: JSON
+LaTeX: LaTeX
+Makefile: Makefile
+Markdown: Markdown
+Pandoc: Pandoc
+Panflute: Panflute
+Python: Python
 Unix: Unix
-operating_system: operating system
-filesystem: filesystem
+XML:
+  title: Extensible Markup Language
+  shorttitle: XML
+YAML:
+  title: YAML Ain’t Markup Language
+  shorttitle: YAML
 command_line: command line
+file_system:
+  comment: still needs info on the Unix virtual file system
+operating_system: operating system
+plaintext: plaintext
+tree_structure: tree structure

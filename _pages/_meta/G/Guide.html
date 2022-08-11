@@ -3,17 +3,52 @@ shorttitle: Guide
 title: Reader’s Guide
 ---
 
-<p>This Readerʼs Guide is presented to give readers a highly­‐structured overview of the content contained in this encyclopedia, by breaking it up into broad areas of knowledge and then further into fields and branches of study. It is not a comprehensive list of the articles available through this encyclopædia (for that, see the {% include link to="Index" from=site.meta %}), but it should be sufficient to get readers started in whichever subject­‑area they see fit to explore.</p>
+<p>
+	This Readerʼs Guide is presented to give readers a highly­‐structured overview of the content contained in this encyclopedia, by breaking it up into broad areas of knowledge and then further into fields and branches of study.
+	It is not a comprehensive list of the articles available through this encyclopædia (for that, see the {% include link to="Index" from=site.meta %}), but it should be sufficient to get readers started in whichever subject area they see fit to explore.
+</p>
 
 <section id="unix">
 	{% include heading level=3 section="unix" text="Working with Unix" %}
 
 	{% include cf items="Unix" from=site.topics %}
 
+	{% include guidelist items="Unix" %}
+
 	<section id="unix.basics">
 		{% include heading level=4 section="unix.basics" text="The Basics" %}
 
-		{% include guidelist items="Unix operating_system filesystem command_line" %}
+		{% include guidelist items="operating_system file_system command_line" %}
+	</section>
+</section>
+
+<section id="formats">
+	{% include heading level=3 section="formats" text="Langages & Formats" %}
+
+	{% include guidelist items="HTML XML Markdown LaTeX" %}
+
+	<section id="formats.programming">
+		{% include heading level=4 section="formats.programming" text="Programming Languages" %}
+
+		{% include guidelist items="JavaScript Python" %}
+	</section>
+
+	<section id="formats.markup">
+		{% include heading level=4 section="formats.markup" text="Markup Languages" %}
+
+		{% include guidelist items="HTML XML Markdown LaTeX" %}
+	</section>
+
+	<section id="formats.metadata">
+		{% include heading level=4 section="formats.metadata" text="Metadata & Configuration Languages" %}
+
+		{% include guidelist items="JSON YAML" %}
+	</section>
+
+	<section id="formats.stylesheets">
+		{% include heading level=4 section="formats.stylesheets" text="Stylesheet Languages" %}
+
+		{% include guidelist items="CSS" %}
 	</section>
 </section>
 
