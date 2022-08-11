@@ -101,7 +101,7 @@ Pages are identified in a number of ways :—
   Slugs are derived from the filenames of pages and should not contain
     spaces or characters which are not allowed in URL’s.
 
-### Crosslinks
+### Links and Crosslinks
 
 Words, entries, and topics which share a slug will be crosslinked
   automatically.
@@ -110,6 +110,14 @@ Additional topics can be listed under `topics` in the YAML frontmatter
   for entries, and related entries can be listed under `related`.
 `dym` (short for “did you mean…?”) can be used to list related entries
   which the user might have intended instead.
+
+You can add external links to a page with :—
+
+```yaml
+external:
+- title: Title of webpage # or use `text` if it isn’t a title
+  url: https://webpage.url.example
+```
 
 ### Page Markup
 
