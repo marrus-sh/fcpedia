@@ -176,7 +176,21 @@ article {
 		& ~ *:Not(aside) ~ aside { Margin-Block: .5EX }
 	}
 
-	& > footer:Last-Child {
+	& > footer.AUTHORSHIP {
+		Margin-Block: 1REM 0;
+		Margin-Inline: Auto -.5REM;
+		Border-Block-Start: Thin Solid;
+		Padding-Block: 1EX;
+		Padding-Inline: 0 .5REM;
+		Max-Inline-Size: 40CH;
+		Font-Size: Inherit;
+		Font-Style: Italic;
+		Text-Align: End;
+
+		& + * > h3 { Margin-Block-Start: 0 }
+	}
+
+	& > footer.TOPICS {
 		Margin-Block: 1REM -1REM;
 		Margin-Inline: -1REM;
 		Border-Block-Start: Thin $print Dashed;

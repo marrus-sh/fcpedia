@@ -14,7 +14,9 @@
 {% include subheader %}
 
 {% include definition %}{% comment %} (Ends in double newline) {% endcomment %}{% include dym %}{% comment %} (Ends in double newline) {% endcomment %}{{ content }}{% comment %} (Ends in newline) {% endcomment %}
-{% if page.related.size > 0 -%}{% include entries in=page.related section="related" heading="Related entries" %}
+{% if page.authors.size > 0 -%}<footer class="AUTHORSHIP"><p>This article was written by {% for author in page.authors %}{% unless forloop.first %}{% if forloop.last %} &amp; {% else %}, {% endif %}{% endunless %}{% include link to=author from=site.authors full=false %}{% endfor %}.</p></footer>
+
+{% endif %}{% if page.related.size > 0 -%}{% include entries in=page.related section="related" heading="Related entries" %}
 
 {% endif %}{% if page.external.size > 0 -%}{% include links in=page.external section="external" heading="External links" %}
 

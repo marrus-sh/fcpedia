@@ -1,5 +1,10 @@
 author: Fandom Coders
 collections:
+  authors:
+    output: true
+    permalink: /Author/:title/
+    sigil: ✎
+    title: Author
   entries:
     output: true
     permalink: /Entry/:title/

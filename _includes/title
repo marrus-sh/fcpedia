@@ -1,17 +1,18 @@
 {% if include.full -%}
-	{% assign collection = site.collections | where: "label", include.of.collection | first -%}
-	{% unless collection -%}
-		{% assign collection = site.collections | where: "label", "entries" | first -%}
+	{% assign title_collection_label = include.of.collection | default: "" -%}
+	{% assign title_collection = site.collections | where: "label", title_collection_label | first -%}
+	{% unless title_collection -%}
+		{% assign title_collection = site.collections | where: "label", "entries" | first -%}
 	{% endunless -%}
-	{% if collection and collection.title -%}
+	{% if title_collection and title_collection.title -%}
 		{% unless include.plain -%}
 			<span class="COLLECTION">{% endunless -%}
-		{{ collection.title }} :: {% unless include.plain -%}
+		{{ title_collection.title }} :: {% unless include.plain -%}
 			</span>{% endunless -%}
 	{% endif -%}
 {% endif -%}
 {% unless include.plain -%}
-	{% if linked.collection == "words" -%}
+	{% if title_collection_label == "words" -%}
 		<i>{% else -%}
 		<span>{% endif -%}
 {% endunless -%}
@@ -19,7 +20,7 @@
 	{{ include.of.title | default: include.of }}{% else -%}
 	{{ include.of.shorttitle | default: include.of.title | default: include.of }}{% endif -%}
 {% unless include.plain -%}
-	{% if linked.collection == "words" -%}
+	{% if title_collection_label == "words" -%}
 		</i>{% else -%}
 		</span>{% endif -%}
 {% endunless -%}

@@ -12,7 +12,7 @@
 {% assign notfound = notfound | sort_natural -%}
 
 {% if topics.size > 0 -%}
-<footer>
+<footer class="TOPICS">
 	<nav id="topics" aria-label="Topics">{% for topic in topics %}
 		{% include link to=topic %}{% endfor %}{% for topic in notfound %}
 		{% include link to=topic from=site.topics %}{% endfor %}
