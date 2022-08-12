@@ -1,0 +1,51 @@
+---
+title: Makefile
+subtitle: text file format for scripting automation
+authors:
+- kibigo
+redirect_from:
+- /Entry/GNUMakefile/
+- /Entry/Make/
+topics:
+- file_format
+- programming_language
+external:
+- title: Make (software)
+  comment: on Wikipedia
+  url: https://en.wikipedia.org/wiki/Make_(software)
+- title: GNU Make
+  url: https://www.gnu.org/software/make/
+---
+<p>
+	A <dfn>Makefile</dfn> is a kind of {% include link to="text" text="text file" %} which is intended to automate scripting tasks, especially the build process of a program or other file.
+	Makefiles are typically executed via a {% include link to="command_line" %} program called <code>make</code>, for example {% include link href="https://www.gnu.org/software/make/" text="GNU Make" %}.
+	Although the format of Makefiles itself comprises a kind of rudimentary {% include link to="programming_language" %} (including variables which can be modified and functions which can be called), Makefiles also typically consist of a large number of commands written in a shell scripting language, typically for the {% include link to="Bourne_shell" %}.
+</p>
+
+<section id="overview">
+	{% include heading level=3 section="overview" text="Overview" %}
+
+	<p>
+		A Makefile consists of a number of <dfn>rules</dfn>, each of which has the following basic form :—
+	</p>
+	<pre><code>target […]: [prerequisite …]
+&#x09;[command]
+&#x09;[…]</code></pre>
+	<p>
+		—: that is, one or more targets, a colon, zero or more prerequisites, and then, on the following lines, zero or more commands, each prefixed by a <code>U+0009 HORIZONTAL TABULATION</code> character.
+		The targets and prerequisites may be paths to actual files; if they are, the rule will only be executed if the last‐modified date of the target is older than one of the prerequisites.
+		This prevents unneccessary rebuilding of files whose prerequisites have not changed.
+		If the target does not point to an actual file, it is “phony” and the rule will always be executed.
+		<code>all</code> is a common phony target for building everything, while <code>clean</code> is commonly used to delete temporary build files.
+	</p>
+	<p>
+		The commands of a Makefile are shell commands, typically for the {% include link to="Bourne_shell" %}.
+		When <code>make</code> executes a rule, it first executes any rules corresponding to its prerequisites (if necessary and applicable), and then simply runs each command in the rule in order.
+		If the target of the rule isn’t phony, executing the rule should build the target (assuming a well‐written Makefile).
+		Then, since the last‐modification date of the target is now newer than that of its prerequisites, running <code>make</code> again will do nothing (until the next time a prerequisite is updated).
+	</p>
+	<p>
+		Makefiles can be considerably more complex than this simple description allows, although the exact features will depend on the version of <code>make</code> you are using.
+		See the {% include link href="https://www.gnu.org/software/make/manual/" title="GNU Make Manual" %} for a comprehensive account of the list of features in GNU Make.
+	</p>
+</section>

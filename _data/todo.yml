@@ -10,6 +10,7 @@
 #   touched in years
 #
 # • add a simple search for pages by title—see pages.json
+Bourne_shell: Bourne shell
 CSS:
   title: Cascading Style Sheets
   shorttitle: CSS
@@ -27,12 +28,21 @@ JSON:
   title: JavaScript Object Notation
   shorttitle: JSON
 LaTeX: LaTeX
-Makefile: Makefile
 Markdown: Markdown
+PNG:
+  title: Portable Network Graphics
+  shorttitle: PNG
 Pandoc: Pandoc
 Panflute: Panflute
 Python: Python
+SVG:
+  title: Scalable Vector Graphics
+  shorttitle: SVG
 Unix: Unix
+Unix philosophy: Unix philosophy
+Web:
+  title: World Wide Web
+  shorttitle: Web
 XML:
   title: Extensible Markup Language
   shorttitle: XML
@@ -40,8 +50,12 @@ YAML:
   title: YAML Ain’t Markup Language
   shorttitle: YAML
 command_line: command line
+computer_language: computer language
 file_system:
   comment: still needs info on the Unix virtual file system
 operating_system: operating system
-plaintext: plaintext
+markup_language: markup language
+metadata_language: metadata language
+programming_language: programming language
+stylesheet_language: stylesheet language
 tree_structure: tree structure

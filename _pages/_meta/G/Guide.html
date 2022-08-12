@@ -23,32 +23,42 @@ title: Reader’s Guide
 </section>
 
 <section id="formats">
-	{% include heading level=3 section="formats" text="Langages & Formats" %}
+	{% include heading level=3 section="formats" text="Computer Langages" %}
 
-	{% include guidelist items="HTML XML Markdown LaTeX" %}
+	{% include cf items="computer_language" from=site.topics %}
+
+	{% include guidelist items="computer_language" %}
 
 	<section id="formats.programming">
 		{% include heading level=4 section="formats.programming" text="Programming Languages" %}
 
-		{% include guidelist items="JavaScript Python" %}
+		{% include cf items="programming_language" from=site.topics %}
+
+		{% include guidelist items="programming_language JavaScript Python" %}
 	</section>
 
 	<section id="formats.markup">
 		{% include heading level=4 section="formats.markup" text="Markup Languages" %}
 
-		{% include guidelist items="HTML XML Markdown LaTeX" %}
+		{% include cf items="markup_language" from=site.topics %}
+
+		{% include guidelist items="markup_language HTML XML Markdown LaTeX" %}
 	</section>
 
 	<section id="formats.metadata">
 		{% include heading level=4 section="formats.metadata" text="Metadata & Configuration Languages" %}
 
-		{% include guidelist items="JSON YAML" %}
+		{% include cf items="metadata_language" from=site.topics %}
+
+		{% include guidelist items="metadata_language JSON YAML" %}
 	</section>
 
 	<section id="formats.stylesheets">
 		{% include heading level=4 section="formats.stylesheets" text="Stylesheet Languages" %}
 
-		{% include guidelist items="CSS" %}
+		{% include cf items="stylesheet_language" from=site.topics %}
+
+		{% include guidelist items="stylesheet_language CSS" %}
 	</section>
 </section>
 

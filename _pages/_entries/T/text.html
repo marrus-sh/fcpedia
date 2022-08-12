@@ -1,0 +1,64 @@
+---
+title: text
+subtitle: computing concept and file format
+authors:
+- kibigo
+redirect_from:
+- /Entry/plaintext/
+- /Entry/plain_text/
+- /Entry/plain text/
+topics:
+- file_format
+external:
+- title: Text file
+  comment: on Wikipedia
+  url: https://en.wikipedia.org/wiki/Text file
+- title: GNU nano
+  comment: a minimal text editor
+  url: https://www.nano-editor.org/
+---
+<p>
+	<dfn>Text</dfn>, in computing terms, is a sequence of bytes which have an unambiguous mapping to units of human writing.
+	These units are called <dfn>characters</dfn>, although their precise definition varies.
+	In {% include link to="computer_language" text="computer languages" %}, segments of text are represented by data structures known as <dfn>strings</dfn>.
+	Text may also be saved to the {% include link to="file_system" text="file system" %} as a <dfn>text file</dfn>.
+</p>
+
+<section id="files">
+	{% include heading level=3 section="files" text="Text Files" %}
+
+	<p>
+		Text files are exactly those files whose bytes are intended to be directly interpreted as symbols of human writing.
+		Not all files which represent human writing are text files; for example, a {% include link to="PNG" %} of street graffiti contains human writing, but because the bytes of the file represent image data (and not letters or other symbols), it is not a text file.
+		Additionally, the textual representation of some text files may not be their primary or most useful one; for example, an {% include link to="SVG" %} file is a kind of text file, but it is usually rendered as an image.
+	</p>
+	<p>
+		Because all text files may be represented as a linear stream of human writing (even if they have other representations), any program which knows how to translate bytes into writing can open any kind of text file.
+		When the goal of this program is to display and edit the text file for a human user, the program is called a <dfn>text editor</dfn>.
+	</p>
+	<p>
+		Numerous text editors exist for every platform, and their accessibility and ease‐of‐use have made human‐readable text files a core part of both the {% include link to="Unix philosophy" %} and the {% include link to="Web" %}.
+	</p>
+</section>
+
+<section id="encoding">
+	{% include heading level=3 section="encoding" text="Text Encodings" %}
+
+	<p>
+		The mapping of bytes into writing used for a piece of text is its <dfn>encoding</dfn>.
+		Today, most text is encoded as either UTF‐8 or UTF‐16, both of which map bytes to the set of characters defined by Unicode.
+		If a program tries to read text but is incorrect about the encoding, the result is often an illegible string of characters known as <dfn>mojibake</dfn>.
+		For example, if a computer accidently tries to read the UTF‐8 string ‹ Hello world! › as UTF‐16, the result is ‹ <span lang="zxx">&#x4865;&#x6C6C;&#x6F20;&#x776F;&#x726C;&#x6421;</span> ›.
+	</p>
+</section>
+
+<section id="plain-rich">
+	{% include heading level=3 section="plain-rich" text="Plain &amp; Rich Text" %}
+
+	<p>
+		Text comes in two varieties: plain and rich.
+		In <dfn>plain text</dfn>, every character in the text is expected to hold its literal meaning, and no information about the semantics, formatting, or presentation of the text is provided.
+		In contrast, <dfn>rich text</dfn> uses certain sequences of characters to imbue the text with additional meaning or properties, for example annotating that a given span is emphasized, or that it should appear in the colour blue.
+		These sequences are known as <dfn>markup</dfn>, and defined collections of markup symbols together form a {% include link to="markup_language" %}.
+	</p>
+</section>
