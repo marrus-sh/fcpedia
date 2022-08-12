@@ -5,7 +5,7 @@
 
 <header>
 	<h2 data-collection="{{ page.collection }}">{% if page.collection == "entries" or page.collection == "words" %}
-		{% include title of=page %}{% else %}
+		{% include title of=page full=true sigil=false %}{% else %}
 		{% include title of=page full=true %}{% endif %}
 	</h2>{% if page.subtitle %}
 	<p>{% assign initial = page.subtitle | slice: 0 -%}

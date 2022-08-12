@@ -20,6 +20,12 @@ title: Reader’s Guide
 
 		{% include guidelist items="operating_system file_system command_line" %}
 	</section>
+
+	<section id="unix.scripting">
+		{% include heading level=4 section="unix.scripting" text="Unix scripting" %}
+
+		{% include guidelist items="Bourne_shell Makefile" %}
+	</section>
 </section>
 
 <section id="formats">
@@ -45,12 +51,12 @@ title: Reader’s Guide
 		{% include guidelist items="markup_language HTML XML Markdown LaTeX" %}
 	</section>
 
-	<section id="formats.metadata">
-		{% include heading level=4 section="formats.metadata" text="Metadata & Configuration Languages" %}
+	<section id="formats.data">
+		{% include heading level=4 section="formats.data" text="Data Serialization & Configuration Languages" %}
 
-		{% include cf items="metadata_language" from=site.topics %}
+		{% include cf items="data_serialization_language" from=site.topics %}
 
-		{% include guidelist items="metadata_language JSON YAML" %}
+		{% include guidelist items="data_serialization_language JSON YAML" %}
 	</section>
 
 	<section id="formats.stylesheets">

@@ -1,0 +1,38 @@
+---
+title: Markdown
+shorttitle: Markdown
+subtitle: family of lightweight markup languages
+authors:
+- kibigo
+redirect_from:
+- CommonMark
+topics:
+- markup_language
+external:
+- text: Original description
+  url: https://daringfireball.net/projects/markdown/
+- title: CommonMark Spec
+  url: https://spec.commonmark.org/
+- title: Markdown
+  comment: on Wikipedia
+  url: https://en.wikipedia.org/wiki/Markdown
+---
+<p>
+	<dfn>Markdown</dfn> is a family of lightweight {% include link to="text" %}‐based {% include link to="markup_language" text="markup_languages" %} which compile to {% include link to="HTML" %}.
+	It was based on the formatting conventions of (originally) plain‐text services such as {% include link to="email" %}.
+	Because Markdown is defined in terms of HTML, it is a popular choice for {% include link to="static_site_generator" text="static site generators" %} and other text input fields where HTML is the desired final product.
+</p>
+
+<section id="flavours">
+	{% include heading level=3 section="flavours" text="Flavours of Markdown" %}
+
+	<p>
+		The original Markdown implementation and syntax definition on <cite>Daring Fireball</cite> was ambiguous and sometimes led to unexpected behaviour.
+		As Markdown was re·implemented by others, it was often modified or extended to meet particular needs.
+		There are countless different variants (or “flavours”) of Markdown, and consequently it is often important to check exactly which flavour is expected by the software you are using before you start authoring documents.
+	</p>
+	<p>
+		In an attempt to reduce the ambiguity that this situation has caused, in 2014 a group of people got together in an attempt to author a single “common” Markdown specification, one which would offer predictable behaviours for the base subset of Markdown features and enable (hopefully) unambiguous processing of Markdown files in places like code repositories.
+		This formally specified variant of Markdown is known as <dfn>CommonMark</dfn> and should be the first choice of syntax for new Markdown documents.
+	</p>
+</section>

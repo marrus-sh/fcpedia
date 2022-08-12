@@ -1,4 +1,4 @@
-{% if include.full -%}
+{% if include.full and include.sigil != false -%}
 	{% assign title_collection_label = include.of.collection | default: "" -%}
 	{% assign title_collection = site.collections | where: "label", title_collection_label | first -%}
 	{% unless title_collection -%}

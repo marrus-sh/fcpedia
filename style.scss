@@ -177,8 +177,10 @@ article {
 	}
 
 	& > footer.AUTHORSHIP {
+		Position: Relative;
+		Inset-Inline-Start: -.5REM;
 		Margin-Block: 1REM 0;
-		Margin-Inline: Auto -.5REM;
+		Margin-Inline: Auto -1REM;
 		Border-Block-Start: Thin Solid;
 		Padding-Block: 1EX;
 		Padding-Inline: 0 .5REM;

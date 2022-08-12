@@ -1,16 +1,12 @@
 # things to do which aren’t pages:
 #
-# • add support for page authors
-#
-# • fix the header on small screens
-#
-#    • more things should be allowed to wrap than currently are!
-#
 # • generally revise the stylesheet; it hasn’t been meaningfully
 #   touched in years
 #
 # • add a simple search for pages by title—see pages.json
-Bourne_shell: Bourne shell
+Bourne_shell:
+  title: Bourne shell
+  comment: this should cover all Bourne derivatives (bash, zsh)
 CSS:
   title: Cascading Style Sheets
   shorttitle: CSS
@@ -28,12 +24,10 @@ JSON:
   title: JavaScript Object Notation
   shorttitle: JSON
 LaTeX: LaTeX
-Markdown: Markdown
 PNG:
   title: Portable Network Graphics
   shorttitle: PNG
 Pandoc: Pandoc
-Panflute: Panflute
 Python: Python
 SVG:
   title: Scalable Vector Graphics
@@ -46,16 +40,17 @@ Web:
 XML:
   title: Extensible Markup Language
   shorttitle: XML
-YAML:
-  title: YAML Ain’t Markup Language
-  shorttitle: YAML
-command_line: command line
 computer_language: computer language
+data_serialization_language: data serialization language
+email:
+  title: electronic mail
+  shorttitle: email
 file_system:
   comment: still needs info on the Unix virtual file system
 operating_system: operating system
 markup_language: markup language
-metadata_language: metadata language
 programming_language: programming language
+static_site_generator: static site generator
 stylesheet_language: stylesheet language
+terminal_emulator: terminal emulator
 tree_structure: tree structure
