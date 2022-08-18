@@ -1,0 +1,47 @@
+---
+title: Git
+subtitle: version control system
+authors:
+- kibigo
+topics:
+- Git
+- version_control_system
+external:
+- text: Official website
+  url: https://git-scm.com
+- title: Git
+  comment: on Wikipedia
+  url: https://en.wikipedia.org/wiki/Git
+---
+<p>
+	<dfn>Git</dfn> is a branching {% include link to="version_control_system" %} based in the {% include link to="file_system" %} and operated via the {% include link to="command_line" %} (although {% include link to="graphical_user_interface" text="graphical user interfaces" %} exist).
+	The core concept of Git is that of the <dfn>commit</dfn>, which bundles a set of changes (known as a <dfn>diff</dfn>) alongside a message, timestamp, and other metadata.
+	By replaying a set of commits, a computer is able to recreate a list of changes to a file over time.
+</p>
+
+<section id="concepts">
+	{% include heading level=3 section="concepts" text="Core Concepts" %}
+
+	<p>
+		A Git <dfn>tree</dfn> is a representation of a directory of files; each commit represents a tree at a certain point in time.
+		Most commits record changes in relation to a previous “<dfn>parent</dfn>” tree; commits which have no parent are known as <dfn>root commits</dfn>.
+		Commits are identified by a SHA‐1 <dfn>hash</dfn>, and may additionally be <dfn>tagged</dfn> with a human‐readable name.
+	</p>
+	<p>
+		A <dfn>branch</dfn>, like a tag, is simply a human‐readable pointer to a commit.
+		Unlike tags, branches are often updated when new commits are made.
+	</p>
+	<p>
+		The <dfn>index</dfn> or “staging area” is a temporary list of changes which will form the diff of the next commit.
+		The index often does not match the <dfn>working tree</dfn>, which is the files as they exist in your filesystem.
+		This separation allows users to selectively <dfn>stage</dfn> or <dfn>unstage</dfn> files from being committed, sometimes on a line‐by‐line basis, so that a large number of changes can easily be broken up into a number of smaller commits.
+	</p>
+	<p>
+		Two or more parent commits can be combined through a <dfn>merge commit</dfn>.
+		Git features a number of <dfn>merge strategies</dfn> for automatically <dfn>resolving</dfn> merges by walking the list of parent commits and comparing changes; however, sometimes manual intervention is necessary.
+	</p>
+	<p>
+		Git is able to push and pull commits, branches, and tags from a remote server, often simply called a <dfn>remote</dfn>.
+		Because a list of commits provides everything needed to replay a set of changes on a different machine, this allows for distributed, collaborative workflows.
+	</p>
+</section>
