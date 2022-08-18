@@ -10,10 +10,10 @@ Bourne_shell:
 CSS:
   title: Cascading Style Sheets
   shorttitle: CSS
+DC:
+  title: Dublin Core
+  shorttitle: DC
 Fandom_Coders: Fandom Coders
-Git:
-  title: Git
-  comment: there is also doubtless a need for various pages on specific git concepts
 HTML:
   title: Hypertext Markup Language
   shorttitle: HTML
@@ -24,14 +24,21 @@ JSON:
   title: JavaScript Object Notation
   shorttitle: JSON
 LaTeX: LaTeX
+Linked_Data: Linked Data
 PNG:
   title: Portable Network Graphics
   shorttitle: PNG
 Pandoc: Pandoc
 Python: Python
+RDF:
+  title: Resource Description Framework
+  shorttitle: RDF
 SVG:
   title: Scalable Vector Graphics
   shorttitle: SVG
+URL:
+  title: Universal Resource Locator
+  shorttitle: URL
 Unix: Unix
 Unix philosophy: Unix philosophy
 Web:
@@ -41,12 +48,14 @@ XML:
   title: Extensible Markup Language
   shorttitle: XML
 computer_language: computer language
+content_negotiation: content negotiation
 data_serialization_language: data serialization language
 email:
   title: electronic mail
   shorttitle: email
 file_system:
   comment: still needs info on the Unix virtual file system
+graphical_user_interface: graphical user interface
 operating_system: operating system
 markup_language: markup language
 programming_language: programming language
@@ -54,3 +63,4 @@ static_site_generator: static site generator
 stylesheet_language: stylesheet language
 terminal_emulator: terminal emulator
 tree_structure: tree structure
+version_control_system: version control system

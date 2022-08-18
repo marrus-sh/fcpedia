@@ -142,6 +142,20 @@ div[role=note],
 footer,
 header { Display: Flow-Root }
 
+blockquote {
+	Margin-Block: 1EX;
+	Border-Inline-Start: $print_medium Solid;
+	Padding-Block: 1EX;
+	Padding-Inline: 1EM;
+	Background: $print_bright;
+	Color: $print_black;
+	Font-Style: Italic;
+
+	cite,
+	em,
+	i { Font-Style: Normal }
+}
+
 article {
 	Margin: Auto;
 	Border: Thin $print_medium Solid;
@@ -273,6 +287,19 @@ nav { Text-Align: Left;
 	}
 }
 
+figure {
+	Margin-Block: 1EM;
+	Margin-Inline: Auto;
+	Max-Inline-Size: 65CH;
+
+	figcaption {
+		Font-Size: Medium;
+		Text-Align: Right;
+
+		&::before { Content: "— " }
+	}
+}
+
 h1 { Font: 900 Normal X-Large/1.2 Serif;
 
 	a[href] & { Text-Decoration: Underline }
@@ -342,7 +369,8 @@ h6 {
 ol,
 ul,
 li,
-p {
+p,
+pre {
 	Display: Block;
 	Margin: 0;
 	Border: None;
@@ -438,6 +466,15 @@ p { Position: Relative;
 			Content: "¶";
 		}
 	}
+}
+
+pre {
+	Margin-Block: 1EM;
+	Padding-Inline: 4CH;
+	Font-Family: Monospace;
+	Line-Height: 1;
+	White-Space: Pre-Wrap;
+	Text-Indent: -2CH;
 }
 
 a[href] {

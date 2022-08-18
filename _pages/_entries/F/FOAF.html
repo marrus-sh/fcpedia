@@ -1,0 +1,67 @@
+---
+title: FOAF
+subtitle: RDF vocabulary
+authors:
+- kibigo
+topics:
+- RDF_vocabulary
+external:
+- title: FOAF Vocabulary Specification
+  comment: archived
+  url: https://web.archive.org/web/20220627164615/http://xmlns.com/foaf/spec/
+---
+
+<p>
+	<dfn>FOAF</dfn> is an {% include link to="RDF" %} vocabulary.
+	The name <i>FOAF</i> is derived from the phrase <i>friend of a friend</i> :—
+</p>
+<figure>
+	<blockquote>
+		<p>
+			The name was chosen to reflect our concern with social networks and the Web, urban myths, trust and connections.
+			Other uses of the name continue, notably in the documentation and investigation of Urban Legends (eg. see the <a href="https://web.archive.org/web/20220627164615/http://www.urbanlegends.com/">alt.folklore.urban archive</a> or <a href="https://web.archive.org/web/20220627164615/http://www.snopes.com/">snopes.com</a>), and other FOAF stories.
+			Our use of the name ‘FOAF’ for a Web vocabulary and document format is intended to complement, rather than replace, these prior uses.
+			FOAF documents describe the characteristics and relationships amongst friends of friends, and their friends, and the stories they tell.
+		</p>
+	</blockquote>
+	<figcaption>{% include link href="https://web.archive.org/web/20220627164615/http://xmlns.com/foaf/spec/" title="FOAF Vocabulary Specification 0.99" %}</figcaption>
+</figure>
+<p>
+	The initial aims of the FOAF vocabulary were twofold :—
+</p>
+<ol>
+	<li>To aid in machine‐readable discovery of social networks (i.e. true “social networking”), and</li>
+	<li>To provide rudimentary mechanisms for describing various agents for the purposes of document attribution.</li>
+</ol>
+<p>
+	Because it was developed over many years of real‐world use, FOAF lacks (and does not aspire to have) the rigour of a formal specification, instead positioning itself as a dictionary of terms.
+</p>
+<figure>
+	<blockquote>
+		<p>
+			The earliest FOAF vocabulary was offered as a “utility vocabulary” within the RDFWeb project, and its documentation was heavily driven by implementation experiments.
+			In fact many of the spelling and stylistic inconsistencies in the names for FOAF terms came from the habit of testing things in real published RDF/XML files before documenting them in the central specification.
+			The FOAF spec was as a result always framed in the role of a dictionary, documenting the terms used in published FOAF files.
+			The vocabulary defined here was designed to serve a practical need: that of documenting work‐in‐progress vocabulary without confusing users and implying stability merely by some term appearing in the FOAF spec.
+		</p>
+	</blockquote>
+	<figcaption>{% include link href="https://www.w3.org/2003/06/sw-vocab-status/note" title="Term‐centric Semantic Web Vocabulary Annotations" %}</figcaption>
+</figure>
+<p>
+	Nevertheless (or perhaps because of this), FOAF remains a popular and widespread choice for encoding basic metadata about persons and documents on the {% include link to="Web" %}.
+</p>
+
+<section id="autodiscovery">
+	{% include heading level=3 section="autodiscovery" text="FOAF Autodiscovery" %}
+
+	<p>
+		Because FOAF is often encoded in a machine‐readable format rather than a human‐readable webpage, enabling automatic discovery of FOAF metadata is a small challenge.
+		Servers of FOAF documents may not support {% include link to="content_negotiation" %}, and it is cumbersome for users to have to remember a separate {% include link to="URL" %} for their FOAF document in addition to their homepage URL.
+		Fortunately, the {% include link to="HTML" %} <code>&lt;link&gt;</code> mechanism can be used to point to an FOAF (or other RDF) metadata document from an ordinary HTML webpage :—
+	</p>
+	<pre><code>&lt;link rel="meta" type="application/rdf+xml" title="FOAF" href="./foaf.rdf"&gt;</code></pre>
+	<p>
+		The <code>rel="meta"</code> is used to signify that the <code>&lt;link&gt;</code> provides metadata for the current document.
+		The <code>type</code> and <code>href</code> should change to match the location and filetype of the metadata document.
+	</p>
+</section>
